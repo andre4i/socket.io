@@ -260,8 +260,8 @@ $(function() {
     removeChatTyping(data);
   });
 
-  socket.on('disconnect', () => {
-    log('you have been disconnected');
+  socket.on('disconnect', (reason) => {
+    log(`you have been disconnected. Reason: "${reason}"`);
   });
 
   socket.io.on('reconnect', () => {

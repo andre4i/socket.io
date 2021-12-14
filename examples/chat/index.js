@@ -3,7 +3,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+  maxHttpBufferSize: 1 // 1b
+});
 const port = process.env.PORT || 3000;
 
 server.listen(port, () => {
